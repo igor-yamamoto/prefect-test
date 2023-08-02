@@ -7,29 +7,40 @@ name: prefect-test
 prefect-version: 2.11.2
 
 # build section allows you to manage and build docker images
-build: null
+build:
 
 # push section allows you to manage if and how this project is uploaded to remote locations
-push: null
+push:
 
 # pull section allows you to provide instructions for cloning this project in remote locations
 pull:
 - prefect.deployments.steps.git_clone:
     repository: https://github.com/igor-yamamoto/prefect-test.git
-    branch: main
-    access_token: null
+    branch: master
+    access_token: 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
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
-- name: null
-  version: null
+- name:
+  version:
   tags: []
-  description: null
+  description:
   schedule: {}
-  flow_name: null
-  entrypoint: null
+  flow_name:
+  entrypoint:
   parameters: {}
   work_pool:
-    name: null
-    work_queue_name: null
+    name:
+    work_queue_name:
     job_variables: {}
+- name: deployment_test
+  version:
+  tags: []
+  description:
+  entrypoint: hello.py:hello_universe
+  parameters: {}
+  work_pool:
+    name: test-kubernetes
+    work_queue_name: test
+    job_variables: {}
+  schedule:

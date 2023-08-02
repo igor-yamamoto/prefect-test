@@ -8,7 +8,7 @@ def say_hello(name: str):
 
 
 @flow
-def hello_universe(names):
+def hello_universe(names=name_list):
     for name in names:
         say_hello(name)
 
